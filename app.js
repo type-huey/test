@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 let isDisableKeepAlive = false
+
 app.use(function(req, res, next) {
   if (isDisableKeepAlive) {
     res.set('Connection', 'close')
