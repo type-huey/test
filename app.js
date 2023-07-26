@@ -1,6 +1,6 @@
 const express = require('express')
-const app = express()
 const port = 3000
+const app = express()
 let isDisableKeepAlive = false
 
 app.use(function(req, res, next) {
