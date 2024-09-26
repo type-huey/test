@@ -1,0 +1,83 @@
+@import 'pretendard/dist/web/static/pretendard.css';
+
+*,
+*::before,
+*::after {
+  transition: none !important;
+}
+
+* {
+  box-sizing: border-box;
+  transition: opacity 0.3s;
+}
+html {
+  height: 100%;
+}
+#root {
+  background-image: url('/static/image/background.png');
+  background-size: cover;
+  height: 100%;
+}
+body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  outline: 0;
+  &:disabled {
+    cursor: default;
+  }
+}
+input {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+textarea {
+  resize: none;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: normal;
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+button > svg {
+  pointer-events: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
