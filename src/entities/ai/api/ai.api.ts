@@ -12,17 +12,24 @@ const generatePrompt = (taskList: any) => {
 
 export async function generateAIResponse(taskList: any) {
   try {
-    const response = await ky
-      .post(`/api/generate`, {
-        json: {
-          model: 'llama3.1',
-          prompt: generatePrompt(taskList),
-          stream: false,
-        },
-      })
-      .json();
+    const response = await fetch(`/api/generate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'llama3.1',
+        prompt: generatePrompt(taskList),
+        stream: false,
+      }),
+    });
 
-    return response;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error('AI 응답 생성 중 오류 발생:', error);
     throw error;
